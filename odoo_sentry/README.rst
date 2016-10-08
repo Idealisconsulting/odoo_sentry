@@ -26,7 +26,7 @@ configuration file:
 ==========================  ====================================================================  ==================
         Option                                          Description                                     Default
 ==========================  ====================================================================  ==================
-sentry_dsn                  Sentry *Data Source Name*. You can find this value in your Sentry     *''*
+sentry_client_dsn           Sentry *Data Source Name*. You can find this value in your Sentry     *''*
                             project configuration. Typically it looks something like this:
                             *https://<public_key>:<secret_key>@sentry.example.com/<project id>*
                             This is the only required option in order to use the module.
