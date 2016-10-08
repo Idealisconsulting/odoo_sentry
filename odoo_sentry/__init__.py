@@ -32,12 +32,16 @@ def initialize_raven(config):
     report_user_errors = config.get('sentry_report_user_errors', False)
     include_extra_context = config.get('sentry_include_context', True)
     level = config.get('sentry_logging_level', DEFAULT_LOG_LEVEL)
-    odoo_dir = config.get('sentry_odoo_dir', None)
+    environment = config.get('sentry_environment')
+    auto_log_stacks = config.get('sentry_auto_log_stacks', False)
+    odoo_dir = config.get('sentry_odoo_dir')
 
     client = Client(
         client_dsn,
         install_sys_hook=False,
         release=get_odoo_commit(odoo_dir),
+        environment=environment,
+        auto_log_stacks=auto_log_stacks,
     )
 
     if level not in LOG_LEVEL_MAP:

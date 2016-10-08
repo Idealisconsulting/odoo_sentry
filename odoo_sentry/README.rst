@@ -53,7 +53,12 @@ sentry_logging_level        The minimal logging level for which to send reports 
                             *critical*. It is recommended to have this set to at least *warn*,
                             to avoid spamming yourself with Sentry events.
 
-sentry_odoo_dir             Absolute path to your Odoo installation directory. This is optional   *''*
+sentry_environment          Environment, in which Odoo is running, eg. *staging*, *production*.
+
+sentry_auto_log_stacks      Whether Raven automatically log frame stacks (including locals) for   *False*
+                            all calls as it would for exceptions.
+
+sentry_odoo_dir             Absolute path to your Odoo installation directory. This is optional
                             and will only be used to extract the Odoo Git commit, which will be
                             sent to Sentry, to allow to distinguish between Odoo updates.
 ==========================  ====================================================================  ==================
@@ -68,6 +73,8 @@ Below is an example of Odoo configuration file with *Odoo Sentry* options::
     sentry_report_user_errors = true
     sentry_include_context = true
     sentry_logging_level = warn
+    sentry_environment = production
+    sentry_auto_log_stacks = false
     sentry_odoo_dir = /home/odoo/odoo/
 
 History
