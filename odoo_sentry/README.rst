@@ -4,6 +4,8 @@ Odoo Sentry
 
 Odoo module which allows painless Sentry_ integration with Odoo.
 
+Supported Odoo versions: 8.0, 9.0
+
 Installation
 ------------
 
