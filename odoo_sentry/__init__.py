@@ -30,7 +30,7 @@ def initialize_raven(config):
     client_dsn = config.get('sentry_client_dsn', '').strip()
     enabled = config.get('sentry_enabled', False)
     report_user_errors = config.get('sentry_report_user_errors', False)
-    include_extra_context = config.get('sentry_include_context', False)
+    include_extra_context = config.get('sentry_include_context', True)
     level = config.get('sentry_logging_level', DEFAULT_LOG_LEVEL)
     odoo_dir = config.get('sentry_odoo_dir', None)
 
