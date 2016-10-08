@@ -11,7 +11,7 @@
     'category': 'Extra Tools',
     'summary': 'Sentry integration with Odoo',
     'depends': [
-        'base'
+        'base',
     ],
     'external_dependencies': {
         'python': [
