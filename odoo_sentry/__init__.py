@@ -2,8 +2,6 @@
 # This file is part of Odoo. The COPYRIGHT file at the top level of
 # this module contains the full copyright notices and license terms.
 
-import odoo.tools.config as config
-
 from raven import Client, fetch_git_sha
 from raven.conf import setup_logging
 from raven.exceptions import InvalidGitRepository
@@ -14,6 +12,7 @@ from odoo.addons.odoo_sentry.logutils import (
     OdooSentryHandler,
     UserErrorFilter,
 )
+from odoo.tools import config
 
 
 def get_odoo_commit(odoo_dir):
