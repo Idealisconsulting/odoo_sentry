@@ -4,8 +4,6 @@ Odoo Sentry
 
 Odoo module which allows painless Sentry_ integration with Odoo.
 
-Supported Odoo versions: 8.0, 9.0
-
 Installation
 ------------
 
@@ -42,9 +40,7 @@ sentry_report_user_errors   Whether user errors should also be reported to Sentr
                                 * *AccessError*
                                 * *MissingError*
                             * *AccessDenied*
-                            * *Warning*
                             * *RedirectWarning*
-                            * *osv.except_osv* (legacy)
 
 sentry_include_context      If enabled, additional context data will be extracted from current    *True*
                             HTTP request and user session (if available). This has no effect
@@ -83,7 +79,7 @@ History
 -------
 
 This module was originally written by `Mohammed Barsi`_.
-In version 2.0.0 it was rewritten from scratch by HBEE_.
+In version 2.0.0 it was rewritten from scratch by Versada_.
 
 Known issues
 ------------
@@ -98,5 +94,5 @@ for all Odoo databases, which are used on that Odoo server.
 
 .. _Sentry: https://sentry.io/
 .. _Mohammed Barsi: https://github.com/barsi/
-.. _HBEE: https://github.com/HBEE/
+.. _Versada: https://github.com/versada/
 .. _raven: https://github.com/getsentry/raven-python

@@ -4,10 +4,9 @@
 
 import logging
 
-import openerp.exceptions
-import openerp.http
-import openerp.loglevels
-import openerp.osv.osv
+import odoo.exceptions
+import odoo.http
+import odoo.loglevels
 
 from raven.handlers.logging import SentryHandler
 from raven.utils.compat import _urlparse
@@ -16,7 +15,7 @@ from raven.utils.wsgi import get_environ, get_headers
 
 # Mapping of Odoo logging level -> Python stdlib logging library log level.
 LOG_LEVEL_MAP = dict([
-    (getattr(openerp.loglevels, 'LOG_%s' % x), getattr(logging, x))
+    (getattr(odoo.loglevels, 'LOG_%s' % x), getattr(logging, x))
     for x in ('CRITICAL', 'ERROR', 'WARNING', 'INFO', 'DEBUG', 'NOTSET')
 ])
 DEFAULT_LOG_LEVEL = 'warn'
@@ -42,7 +41,7 @@ def get_extra_context():
     '''
     Extracts additional context from the current request.
     '''
-    request = openerp.http.request
+    request = odoo.http.request
     try:
         session = getattr(request, 'session', {})
     except RuntimeError:
@@ -71,11 +70,9 @@ class UserErrorFilter(logging.Filter):
     '''Logging filter which ignores user errors.'''
 
     IGNORED_EXCEPTIONS = (
-        openerp.exceptions.except_orm,
-        openerp.exceptions.AccessDenied,
-        openerp.exceptions.Warning,
-        openerp.exceptions.RedirectWarning,
-        openerp.osv.osv.except_osv,
+        odoo.exceptions.except_orm,
+        odoo.exceptions.AccessDenied,
+        odoo.exceptions.RedirectWarning,
     )
 
     def filter(self, record):

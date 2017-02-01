@@ -2,13 +2,13 @@
 # This file is part of Odoo. The COPYRIGHT file at the top level of
 # this module contains the full copyright notices and license terms.
 
-import openerp.tools.config as config
+import odoo.tools.config as config
 
 from raven import Client, fetch_git_sha
 from raven.conf import setup_logging
 from raven.exceptions import InvalidGitRepository
 
-from openerp.addons.odoo_sentry.logutils import (
+from odoo.addons.odoo_sentry.logutils import (
     DEFAULT_LOG_LEVEL,
     LOG_LEVEL_MAP,
     OdooSentryHandler,

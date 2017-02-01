@@ -6,7 +6,7 @@
     'version': '2.0.0',
     'author': [
         'Mohammed Barsi',
-        'HBEE',
+        'Versada',
     ],
     'category': 'Extra Tools',
     'summary': 'Sentry integration with Odoo',
