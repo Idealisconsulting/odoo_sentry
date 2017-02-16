@@ -21,6 +21,12 @@ LOG_LEVEL_MAP = dict([
 ])
 DEFAULT_LOG_LEVEL = 'warn'
 
+def get_secure_headers(environ):
+    header = dict(get_headers(environ))
+    # Never never send the cookie to sentry !
+    # leaking the cookie is a major security issue.
+    header.pop('Cookie', None)
+    return header
 
 def get_request_info(request):
     '''
@@ -33,7 +39,7 @@ def get_request_info(request):
         'url': '%s://%s%s' % (urlparts.scheme, urlparts.netloc, urlparts.path),
         'query_string': urlparts.query,
         'method': request.method,
-        'headers': dict(get_headers(request.environ)),
+        'headers': dict(get_secure_headers(request.environ)),
         'env': dict(get_environ(request.environ)),
     }
 
