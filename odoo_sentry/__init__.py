@@ -60,4 +60,3 @@ def initialize_raven(config):
 
 
 client = initialize_raven(config)
-client.captureMessage('Starting Odoo Server')
